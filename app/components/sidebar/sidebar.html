@@ -1,0 +1,13 @@
+<h3>View by:</h3>
+<ul class="menu">
+    <li><a href="#!/grid">grid</a></li>
+    <li><a href="#!/list">list</a></li>
+</ul>
+
+<h3>Sort by:</h3>
+<select class="sortBy" ng-options="col for col in cols" ng-model="sort"></select>
+
+<h3>Filter by:</h3>
+<select class="sortBy" name="repeatSelect" id="repeatSelect" ng-model="searchparam.category">
+    <option ng-repeat="category in categories" value="{{category.id}}">{{category.title}}</option>
+</select>

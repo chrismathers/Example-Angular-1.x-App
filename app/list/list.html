@@ -1,0 +1,29 @@
+<div ng-controller="listCtrl" class="flex-row">
+  <!--<div grid-content class="grid-content"></div>-->
+  <div class="grid-content">
+    <table class="friends">
+      <tr>
+        <th>
+          <button ng-click="sortBy('name')">code</button>
+          <span class="sortorder" ng-show="propertyName === 'code'" ng-class="{reverse: reverse}"></span>
+        </th>
+        <th>
+          <button ng-click="sortBy('phone')">name</button>
+          <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
+        </th>
+        <th>
+          <button ng-click="sortBy('population')">population</button>
+          <span class="sortorder" ng-show="propertyName === 'population'" ng-class="{reverse: reverse}"></span>
+        </th>
+      </tr>
+      <tr ng-repeat="country in countries | orderBy:propertyName:reverse | filter:searchPopulation">
+        <td>{{ country.code }}</td>
+        <td>{{ country.name }}</td>
+        <td>{{ country.population }}</td>
+      </tr>
+    </table>
+
+
+  </div>
+  <div>Sidebar: v<span sidebar-version></span></div>
+</div>

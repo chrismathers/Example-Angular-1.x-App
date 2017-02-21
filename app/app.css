@@ -23,3 +23,25 @@
   content: "|";
   padding-right: 0.3em;
 }
+
+.grid-content {
+  border: 1px solid red;
+  flex-grow: 1;
+}
+
+.grid-content table th,
+.grid-content table td {
+  text-align: left;
+  padding: 0 10px;
+}
+
+.sidebar {
+  min-width: 200px;
+  border: 1px solid blue;
+}
+
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}

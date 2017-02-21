@@ -1,0 +1,81 @@
+<table class="friends">
+    <tr>
+        <th>
+            <button ng-click="sortBy('name')">code</button>
+            <span class="sortorder" ng-show="propertyName === 'code'" ng-class="{reverse: reverse}"></span>
+        </th>
+        <th>
+            <button ng-click="sortBy('phone')">name</button>
+            <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
+        </th>
+        <th>
+            <button ng-click="sortBy('population')">population</button>
+            <span class="sortorder" ng-show="propertyName === 'population'" ng-class="{reverse: reverse}"></span>
+        </th>
+    </tr>
+    <tr ng-repeat="country in countries | orderBy:propertyName:reverse | filter:searchPopulation">
+        <td>{{ country.code }}</td>
+        <td>{{ country.name }}</td>
+        <td>{{ country.population }}</td>
+    </tr>
+</table>
+
+
+
+
+
+
+<!--
+<div class="alert alert-info">
+    <p>Sort Type: {{ sortType }}</p>
+    <p>Sort Reverse: {{ sortReverse }}</p>
+    <p>Search Query: {{ searchPopulation }}</p>
+</div>
+
+<form>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control" placeholder="Search for Country" ng-model="searchPopulation">
+        </div>
+    </div>
+</form>
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+    <tr>
+        <td>
+            <a href="#" ng-click="sortType = 'code'; sortReverse = !sortReverse">
+                Code
+                <span ng-show="sortType == 'code' && !sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="sortType == 'code' && sortReverse" class="fa fa-caret-up"></span>
+            </a>
+        </td>
+        <td>
+            <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+                Name
+                <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+            </a>
+        </td>
+        <td>
+            <a href="#" ng-click="sortType = 'population'; sortReverse = !sortReverse">
+                Population
+                <span ng-show="sortType == 'population' && !sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="sortType == 'population' && sortReverse" class="fa fa-caret-up"></span>
+            </a>
+        </td>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="country in countries | orderBy:sortType:sortReverse | filter:searchPopulation">
+        <td>{{ country.code }}</td>
+        <td>{{ country.name }}</td>
+        <td>{{ country.population }}</td>
+    </tr>
+    </tbody>
+
+</table>
+-->
