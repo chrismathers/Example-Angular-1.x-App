@@ -1,29 +1,35 @@
-<div ng-controller="listCtrl" class="flex-row">
-  <!--<div grid-content class="grid-content"></div>-->
+<div ng-controller="listCtrl" class="content flex-row">
+
   <div class="grid-content">
-    <table class="friends">
+
+    <table class="table table-bordered table-striped">
+
       <tr>
         <th>
-          <button ng-click="sortBy('name')">code</button>
-          <span class="sortorder" ng-show="propertyName === 'code'" ng-class="{reverse: reverse}"></span>
+          Title
         </th>
         <th>
-          <button ng-click="sortBy('phone')">name</button>
-          <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
+          Date
         </th>
         <th>
-          <button ng-click="sortBy('population')">population</button>
-          <span class="sortorder" ng-show="propertyName === 'population'" ng-class="{reverse: reverse}"></span>
+          Score
+        </th>
+        <th />
+        <th>
+          Article
         </th>
       </tr>
-      <tr ng-repeat="country in countries | orderBy:propertyName:reverse | filter:searchPopulation">
-        <td>{{ country.code }}</td>
-        <td>{{ country.name }}</td>
-        <td>{{ country.population }}</td>
+      <tr ng-repeat="article in articles | orderBy:sort | filter: searchparam">
+        <td>{{ article.title }}</td>
+        <td>{{ article.timestamp | date:'longDate' }}</td>
+        <td>{{ article.score }}</td>
+        <td ng-class="'category' + article.category"><!--{{ article.category }}--></td>
+
+        <td ng-bind-html="$sce.trustAsHtml(article.html | words:10)" ng-click="goTo('/detail', article.id)"></td>
+        <!--I had to cheat on the display of only the 1st paragraph, I went with a truncate plugin for now -->
+
       </tr>
     </table>
-
-
   </div>
-  <div>Sidebar: v<span sidebar-version></span></div>
+  <div class="sidebar" sidebar-content></div>
 </div>

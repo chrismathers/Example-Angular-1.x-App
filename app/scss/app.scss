@@ -1,0 +1,199 @@
+/* app css stylesheet */
+
+body {
+  margin: 10px;
+}
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.flex-col {
+  @include flex-col;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-row {
+  @include flex-row;
+}
+
+ul {
+  margin: 0;
+}
+
+h3 {
+  margin: 13px 0 0 0;
+
+}
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+
+  h3 {
+    display: inline-block;
+  }
+
+  > li {
+    display: inline;
+    margin: 10px 10px 20px 0;
+  }
+  > li a {
+    display: inline;
+    margin: 10px 10px 20px 0;
+    opacity: .5;
+  }
+
+  > li.selected a {
+    opacity: 1;
+  }
+}
+
+.grid-content {
+  flex-grow: 1;
+  overflow: hidden;
+  overflow-y: auto;
+  max-height: 90vh;
+  max-width: 75vw;
+
+  table th,
+  table td {
+    text-align: left;
+    padding: 0 10px;
+  }
+}
+
+table {
+  width: 100%;
+
+  th {
+    border-bottom: 1px solid #777;
+    font-size: 14px;
+  }
+
+  td {
+    border: 1px solid #eaeaea;
+    font-size: 13px;
+
+    p {
+      margin: 6px 0;
+    }
+
+    &:nth-child(2) {
+      min-width: 114px;
+    }
+
+    &:nth-child(5) {
+      cursor: pointer;
+    }
+  }
+}
+
+.category1 {
+  background-color: #16a765;
+}
+.category2 {
+  background-color: #737373;
+}
+.category3 {
+  background-color: #4986e7;
+}
+.category4 {
+  background-color: #e9b330;
+}
+
+.facet td {
+  border: none;
+}
+
+.facetCategory1,
+.facetCategory2,
+.facetCategory3,
+.facetCategory4 {
+  font-weight: bold;
+}
+.facetCategory1 {
+  color: #16a765;
+}
+.facetCategory2 {
+  color: #737373;
+}
+.facetCategory3 {
+  color: #4986e7;
+}
+.facetCategory4 {
+  color: #e9b330;
+}
+
+.sidebar {
+  min-width: 200px;
+  margin: 0 20px;
+}
+
+.tiled-icon {
+  max-width: 128px;
+  max-height: 128px;
+}
+
+select {
+  background-color: white;
+  color: #000;
+
+  select * {
+    background-color: white;
+    color: #000;
+
+    *.category1 { /* This, miraculously, styles the '<option class="red"></option>' elements. */
+      background-color: #16a765;
+      color: #FFF;
+    }
+    *.category2 {
+      background-color: #737373;
+      color: #FFF;
+    }
+    *.category3 {
+      background-color: #4986e7;
+      color: #FFF;
+    }
+    *.category4 {
+      background-color: #e9b330;
+      color: #FFF;
+    }
+  }
+}
+
+.fullArticle {
+  margin: 20px;
+
+  .fullArticle p:nth-child(1) {
+    font-weight: bold;
+  }
+
+  .subs {
+    font-weight: bold;
+    color: #999;
+  }
+}
+
+@media (max-width: 640px) {
+  .content {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .grid-content {
+    max-width: 100vh;
+  }
+
+  .sidebar {
+    display: none;
+    &.isShown {
+      display: block;
+    }
+  }
+}

@@ -1,7 +1,14 @@
-<h3>View by:</h3>
+
 <ul class="menu">
-    <li><a href="#!/grid">grid</a></li>
-    <li><a href="#!/list">list</a></li>
+    <li>
+        <h3>View by:</h3>
+    </li>
+    <li ng-class="getClass('/grid')">
+        <a href="#!/grid"><img alt="grid" class="tiled-icon" src="https://cdn0.iconfinder.com/data/icons/elysium-icons/24/Grid.png"></a>
+    </li>
+    <li ng-class="getClass('/list')">
+        <a href="#!/list"><img alt="list" class="tiled-icon" src="https://cdn0.iconfinder.com/data/icons/elysium-icons/24/ViewType_Details.png"></a>
+    </li>
 </ul>
 
 <h3>Sort by:</h3>
@@ -9,5 +16,23 @@
 
 <h3>Filter by:</h3>
 <select class="sortBy" name="repeatSelect" id="repeatSelect" ng-model="searchparam.category">
-    <option ng-repeat="category in categories" value="{{category.id}}">{{category.title}}</option>
+    <option ng-class="'category' + category.id" ng-repeat="category in categories" value="{{category.id}}">{{category.title}}</option>
 </select>
+
+<div class="flex-col">
+    <p>Working on wiring up checkboxes to filters:</p>
+    <label ng-repeat="category in categories"  ng-class="'facetCategory' + category.id">
+        <input type="checkbox" ng-checked="category.checked" ng-model="category.checked" /> {{ category.title }}
+    </label>
+
+    <table class="facet">
+        <tbody>
+        <tr ng-class="'facetCategory' + category.id" data-ng-repeat="category in categories | categoryCheckbox" ng-model="searchparam.categoryCheckbox">
+            <td>{{ category.title }}</td>
+            <td>{{ category.id }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+

@@ -1,36 +1,9 @@
-<div ng-controller="gridCtrl" class="flex-row">
-    <!--<div grid-content class="grid-content"></div>-->
+<div ng-controller="gridCtrl" class="content flex-row" ng-click="registerClick()">
+
     <div class="grid-content">
 
-        <!--<select class="sortBy" name="repeatSelect" id="repeatSelect" ng-model="sort" ng-options="prop for prop in props" >
-            <option ng-repeat="category in categories" value="{{category.id}}">{{category.title}}</option>
-        </select>-->
+        <table class="table table-bordered table-striped">
 
-
-
-        <table class="articles">
-            <!--<tr>
-                <th>
-                    <button ng-click="sortBy('title')">Title</button>
-                    <span class="sortorder" ng-show="selectedOrder === 'title'" ng-class="{reverse: reverse}"></span>
-                </th>
-               <th>
-                    <button ng-click="sortBy('date')">date</button>
-                    <span class="sortorder" ng-show="selectedOrder === 'date'" ng-class="{reverse: reverse}"></span>
-                </th>
-                <th>
-                    <button ng-click="sortBy('score')">score</button>
-                    <span class="sortorder" ng-show="selectedOrder === 'score'" ng-class="{reverse: reverse}"></span>
-                </th>
-                <th>
-                    <button ng-click="sortBy('category')">category</button>
-                    <span class="sortorder" ng-show="selectedOrder === 'category'" ng-class="{reverse: reverse}"></span>
-                </th>
-                <th>
-                    <button ng-click="sortBy('html')">html</button>
-                    <span class="sortorder" ng-show="selectedOrder === 'html'" ng-class="{reverse: reverse}"></span>
-                </th>
-            </tr>-->
             <tr>
                 <th>
                     Title
@@ -41,24 +14,22 @@
                 <th>
                     Score
                 </th>
-                <th>
-                    Category
-                </th>
+                <th />
                 <th>
                     Article
                 </th>
             </tr>
-            <!--<tr ng-repeat="article in articles | orderBy:propertyName:reverse | filter:searchPopulation">-->
             <tr ng-repeat="article in articles | orderBy:sort | filter: searchparam">
                 <td>{{ article.title }}</td>
                 <td>{{ article.timestamp | date:'longDate' }}</td>
                 <td>{{ article.score }}</td>
-                <td>{{ article.category }}</td>
-                <td ng-bind-html="$sce.trustAsHtml(article.html | words:10)"></td>
+                <td ng-class="'category' + article.category"><!--{{ article.category }}--></td>
+
+                <td ng-bind-html="$sce.trustAsHtml(article.html | words:10)" ng-click="goTo('/detail', article.id)"></td>
+                <!--I had to cheat on the display of only the 1st paragraph, I went with a truncate plugin for now -->
+
             </tr>
         </table>
-
-
     </div>
     <div class="sidebar" sidebar-content></div>
 </div>

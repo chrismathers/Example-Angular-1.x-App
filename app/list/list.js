@@ -2,24 +2,20 @@
 
 angular.module('myApp.list', ['ngRoute'])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/list', {
-    templateUrl: 'list/list.html',
-    controller: 'listCtrl'
-  });
-}])
+    .config(['$routeProvider', function($routeProvider) {
+      $routeProvider.when('/list', {
+        templateUrl: 'list/list.html',
+        controller: 'listCtrl'
+      });
+    }])
 
-    .controller('listCtrl', ['$scope', '$http', function($scope, $http, myService) {
+    .controller('listCtrl', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
 
-        $http.get('/model/countries.json').success(function(data) {
-            $scope.countries = data;
+        $scope.$sce = $sce;
+
+        // get articles
+        $http.get('/model/data.json').success(function(data) {
+            $scope.articles = angular.fromJson(data.articles);
         });
 
-        $scope.propertyName = 'population';
-        $scope.reverse = true;
-
-        $scope.sortBy = function(propertyName) {
-            $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
-            $scope.propertyName = propertyName;
-        };
-    }])
+    }]);

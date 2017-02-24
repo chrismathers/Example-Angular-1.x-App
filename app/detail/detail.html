@@ -1,1 +1,14 @@
-<p>This is the partial for Detail.</p>
+<h2>I have set routeParams in the sidebar, but can't seem to pick it off the $routerProvider in the details controller</h2>
+
+<!--<div ng-repeat="article in articles" ng-show="article.id==paramValue">-->
+<div class="fullArticle" ng-repeat="article in articles" ng-show="article.id==100">
+
+    <h2 ng-class="'facetCategory' + article.category">{{article.category}} <span class="subs">(swap category ID with category.title)</span> </h2>
+    <p>{{ article.timestamp | date:'longDate' }}</p>
+    <h3 class="subs">{{article.title}}</h3>
+    <div ng-bind-html="$sce.trustAsHtml(article.html)"></div>
+
+    <p class="subs">Score: {{article.score}}</p>
+
+    <p>Return to <a href="#!/grid">grid</a></p>
+</div>

@@ -13,5 +13,13 @@ angular.module('myApp', [
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 
+  $routeProvider
+/*      .when('/details', {
+          templateUrl: '/details',
+          controller: 'detailsCtrl',
+          routeParams: 'blah'
+      })*/
+      .otherwise({ redirectTo: '/' });
+
   $routeProvider.otherwise({redirectTo: '/grid'});
 }]);
