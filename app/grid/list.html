@@ -1,4 +1,4 @@
-<div class="flex" ng-repeat="article in filteredArticles | filter:query | orderBy:sort">
+<div class="list" ng-repeat="article in filteredArticles | filter:query | orderBy:sort">
     <div ng-class="'cat-div cat' + article.category">
         <h3>{{ article.title }} - {{$index}}</h3>
         <p>{{ article.timestamp | date:'longDate' }}</p>

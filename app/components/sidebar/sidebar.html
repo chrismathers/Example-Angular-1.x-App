@@ -1,38 +1,33 @@
-
-<ul class="menu">
+<ul class="menu" ng-model="myVar">
     <li>
         <h3>View by:</h3>
     </li>
-    <li ng-class="getClass('/grid')">
+    <li ng-class="getClass('/grid')" value="grid">
         <a href="#!/grid"><img alt="grid" class="tiled-icon" src="https://cdn0.iconfinder.com/data/icons/elysium-icons/24/Grid.png"></a>
     </li>
-    <li ng-class="getClass('/list')">
+    <li ng-class="getClass('/list')" value="list">
         <a href="#!/list"><img alt="list" class="tiled-icon" src="https://cdn0.iconfinder.com/data/icons/elysium-icons/24/ViewType_Details.png"></a>
     </li>
 </ul>
 
-<h3>Sort by:</h3>
-<select class="sortBy" ng-options="col for col in cols" ng-model="sort"></select>
+<p>
+    <b>Sort by:</b>&nbsp;
+    <select class="sortBy" ng-options="col for col in cols" ng-model="sort"></select>
+</p>
 
+<!--
+In case anybody wants to filter by select instead of dropdown
 <h3>Filter by:</h3>
-<select class="sortBy" name="repeatSelect" id="repeatSelect" ng-model="searchparam.category">
+<select ng-model="searchparam.category">
     <option ng-class="'category' + category.id" ng-repeat="category in categories" value="{{category.id}}">{{category.title}}</option>
 </select>
+-->
 
-<div class="flex-col">
-    <p>Working on wiring up checkboxes to filters:</p>
-    <label ng-repeat="category in categories"  ng-class="'facetCategory' + category.id">
-        <input type="checkbox" ng-checked="category.checked" ng-model="category.checked" /> {{ category.title }}
+<div class="categoryFacet">
+    <label ng-repeat="articleCategory in categoryGroup" ngInit="parentIndex = $index">
+        <input type="checkbox" ng-model="useCategory[articleCategory]" />
+        <span ng-repeat="category in categories"  ng-class="'facetCategory' + category.id">
+            {{$parent.$index+1 === category.id ? category.title : '' }}
+        </span>
     </label>
-
-    <table class="facet">
-        <tbody>
-        <tr ng-class="'facetCategory' + category.id" data-ng-repeat="category in categories | categoryCheckbox" ng-model="searchparam.categoryCheckbox">
-            <td>{{ category.title }}</td>
-            <td>{{ category.id }}</td>
-        </tr>
-        </tbody>
-    </table>
 </div>
-
-
