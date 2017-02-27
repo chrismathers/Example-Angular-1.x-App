@@ -51,9 +51,17 @@ h3 {
 }
 
 .logo {
+  @include flex-row;
   background: black;
   margin: 0 0 10px 0;
   padding: 4px 0 4px 10px;
+  a {
+    flex-grow: 1;
+  }
+  p {
+    color: white;
+    margin-right: 20px;
+  }
 }
 
 .menu {
@@ -303,6 +311,21 @@ select {
 }
 
 @media (max-width: 640px) {
+
+  .logo {
+    @include flex-col;
+    background: black;
+    margin: 0 0 10px 0;
+    padding: 4px 0 4px 10px;
+    a {
+      flex-grow: 1;
+    }
+    p {
+      color: white;
+      margin: 4px;
+    }
+  }
+
   .content {
     display: flex;
     flex-direction: column-reverse;

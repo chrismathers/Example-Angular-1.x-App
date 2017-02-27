@@ -29,9 +29,16 @@ h3 {
   margin: 13px 0 0 0; }
 
 .logo {
+  display: flex;
+  flex-direction: row;
   background: black;
   margin: 0 0 10px 0;
   padding: 4px 0 4px 10px; }
+  .logo a {
+    flex-grow: 1; }
+  .logo p {
+    color: white;
+    margin-right: 20px; }
 
 .menu {
   list-style: none;
@@ -211,6 +218,18 @@ select {
     color: #999; }
 
 @media (max-width: 640px) {
+  .logo {
+    display: flex;
+    flex-direction: column;
+    background: black;
+    margin: 0 0 10px 0;
+    padding: 4px 0 4px 10px; }
+    .logo a {
+      flex-grow: 1; }
+    .logo p {
+      color: white;
+      margin: 4px; }
+
   .content {
     display: flex;
     flex-direction: column-reverse; }
