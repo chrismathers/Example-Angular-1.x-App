@@ -6,3 +6,6 @@ tmp
 .DS_Store
 .idea
 .sass-cache
+/app/.sass-cache/
+/app/grid/cat-check-filter.js
+/app/grid/category-checkbox-filter.js

@@ -33,10 +33,7 @@
       'app.js',
       'grid/grid.js',
       'list/list.js',
-      'detail/detail.js',
-      'components/version/version.js',
-      'components/version/version-directive.js',
-      'components/version/interpolate-filter.js'
+      'detail/detail.js'
     ], function() {
       // when all is done, execute bootstrap angular application
       angular.bootstrap(document, ['myApp']);
@@ -54,7 +51,6 @@
 
   <div ng-view></div>
 
-  <div>Angular seed app: v<span app-version></span></div>
 
 </body>
 </html>

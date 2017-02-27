@@ -1,32 +1,31 @@
 'use strict';
 
-angular.module('myApp.grid', ['ngRoute', 'myApp.grid.category-checkbox-filter', 'myApp.grid.cat-check-filter'])
+angular.module('myApp.grid', ['ngRoute'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/grid', {
-            templateUrl: 'grid/content.html',
+            templateUrl: 'content/content.html',
             controller: 'gridCtrl'
         });
     }])
 
-    .controller('gridCtrl', ['$scope', '$http', '$sce', '$location', '$filter', function($scope, $http, $sce, $location, $filter, myService) {
+    .controller('gridCtrl', ['$scope', '$http', '$sce', '$location', '$filter', function($scope, $http, $sce, $location, $filter) {
 
         $scope.name = 'grid';
         $scope.templates=[
             {
                 name:'grid',
-                url:'grid/grid.html'
+                url:'content/grid.html'
             }
             ,{
                 name:'list',
-                url:'grid/list.html'
+                url:'content/list.html'
             }
         ]
 
         $scope.selectedTemplate = $scope.templates[0].url;
-        $scope.selectTemplate = function(template){
-            $scope.tclass = ($scope.selectedTemplate.name === $scope.templates.name) ? ' selected' : '';
+        $scope.selectTemplate = function(template) {
             $scope.selectedTemplate = template.url;
-        }
+        };
 
 
         var uniqueItems = function (data, key) {
@@ -38,7 +37,7 @@ angular.module('myApp.grid', ['ngRoute', 'myApp.grid.category-checkbox-filter', 
                 }
             }
             return result;
-        }
+        };
 
         $scope.useCategory = {};
         $scope.$sce = $sce;

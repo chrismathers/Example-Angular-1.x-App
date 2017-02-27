@@ -4,7 +4,12 @@
         <h3>View by:</h3>
     </li>
     <li ng-repeat="template in templates">
-        <button ng-class="[template.name, tclass]" ng-click="selectTemplate(template)">{{template.name}}</button>
+        <button id="{{template.name}}"
+                ng-init="$index ? template.isSelected = false : template.isSelected = true"
+                ng-class="template.isSelected ? ' selected ' : ''"
+                class="{{template.name}}"
+                ng-click="selectTemplate(template)">{{template.name}}
+        </button>
     </li>
 </ul>
 

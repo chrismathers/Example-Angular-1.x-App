@@ -67,9 +67,11 @@ h3 {
     text-indent: -6000px;
     width: 24px;
     outline: none;
+    cursor: pointer;
     opacity: .5;
     &.selected {
       opacity: 1;
+      cursor: default;
     }
     &.grid {
       background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/Grid.png) no-repeat 0 0;
@@ -132,6 +134,9 @@ h3 {
   }
   p {
     margin: 0;
+    &:hover {
+      cursor: pointer;
+    }
   }
   .html p {
     display: none;

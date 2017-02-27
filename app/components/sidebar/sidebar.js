@@ -18,6 +18,7 @@ angular.module('myApp.sidebar', [])
                 scope.registerClick = function () {
                     element.toggleClass("isShown");
                 }
+
             }
         };
     });

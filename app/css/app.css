@@ -43,9 +43,11 @@ h3 {
     text-indent: -6000px;
     width: 24px;
     outline: none;
+    cursor: pointer;
     opacity: .5; }
     .menu button.selected {
-      opacity: 1; }
+      opacity: 1;
+      cursor: default; }
     .menu button.grid {
       background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/Grid.png) no-repeat 0 0; }
     .menu button.list {
@@ -87,6 +89,8 @@ h3 {
       border-color: #e9b330; }
   .grid-content p {
     margin: 0; }
+    .grid-content p:hover {
+      cursor: pointer; }
   .grid-content .html p {
     display: none; }
   .grid-content .html p:first-child {

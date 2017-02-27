@@ -4,21 +4,13 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.grid',
-  'myApp.list',
   'myApp.detail',
-  'myApp.version',
-  'myApp.sidebar',
-  'myApp.truncate'
+  'myApp.sidebar'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 
   $routeProvider
-/*      .when('/details', {
-          templateUrl: '/details',
-          controller: 'detailsCtrl',
-          routeParams: 'blah'
-      })*/
       .otherwise({ redirectTo: '/' });
 
   $routeProvider.otherwise({redirectTo: '/grid'});
