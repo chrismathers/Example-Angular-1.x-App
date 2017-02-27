@@ -70,6 +70,7 @@ h3 {
   overflow-y: auto;
   max-height: 90vh;
   max-width: 1000px;
+  width: 100%;
   margin: 10px; }
   .grid-content table th,
   .grid-content table td {
