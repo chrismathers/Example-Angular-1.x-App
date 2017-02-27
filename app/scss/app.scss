@@ -1,9 +1,5 @@
 /* app css stylesheet */
 
-body {
-  margin: 10px;
-}
-
 @mixin flex {
   display: flex;
 }
@@ -54,11 +50,35 @@ h3 {
 
 }
 
+.logo {
+  background: black;
+  margin: 0 0 10px 0;
+  padding: 4px 0 4px 10px;
+}
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
   margin-bottom: 1em;
   padding: 0 0 0.5em;
+
+  button {
+    border: none;
+    text-indent: -6000px;
+    width: 24px;
+    outline: none;
+    opacity: .5;
+    &.selected {
+      opacity: 1;
+    }
+    &.grid {
+      background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/Grid.png) no-repeat 0 0;
+    }
+    &.list {
+      background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/ViewType_Details.png) no-repeat 0 0;
+    }
+  }
+
 
   h3 {
     display: inline-block;
@@ -84,7 +104,8 @@ h3 {
   overflow: hidden;
   overflow-y: auto;
   max-height: 90vh;
-  max-width: 75vw;
+  max-width: 63vw;
+  margin: 10px;
 
   table th,
   table td {
@@ -121,6 +142,49 @@ h3 {
 
   .grid {
     @include flex-row;
+    flex-direction: row;
+    overflow: hidden;
+    flex-wrap: wrap;
+    max-width: 1157px;
+
+    .flex {
+      display: flex;
+      max-height: 200px;
+      overflow: hidden;
+      min-width: 214px;
+      max-width: 214px;
+      margin-bottom: 15px;
+
+      .cat-div {
+        border-left: none;
+        border-top: 10px solid;
+        &.cat1 {
+          border-color: $color1;
+        }
+        &.cat2 {
+          border-color: $color2;
+        }
+        &.cat3 {
+          border-color: $color3;
+        }
+        &.cat4 {
+          border-color: $color4;
+        }
+
+        h3 {
+          margin: 2px 0 5px 0;
+          font-size: 16px;
+        }
+
+        p:first-child {
+          display: block;
+          text-overflow: ellipsis;
+          max-width: 192px;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
+    }
   }
 
 }
@@ -151,11 +215,11 @@ table {
   }
 }
 
-
 .categoryFacet {
   @include flex;
   width: 75%;
   flex-wrap: wrap;
+  margin-bottom: 1em;
   label {
     white-space: nowrap;
     min-width: 102px;
@@ -240,6 +304,49 @@ select {
 
   .grid-content {
     max-width: 100vh;
+
+    .grid {
+      .flex {
+        display: flex;
+        overflow: hidden;
+        margin-bottom: 15px;
+        width: 100%;
+        min-width: 214px;
+        max-width: none;
+        max-height: 200px;
+
+        .cat-div {
+          border-left: none;
+          border-top: 10px solid;
+          width: 100%;
+          &.cat1 {
+            border-color: $color1;
+          }
+          &.cat2 {
+            border-color: $color2;
+          }
+          &.cat3 {
+            border-color: $color3;
+          }
+          &.cat4 {
+            border-color: $color4;
+          }
+
+          h3 {
+            margin: 2px 0 5px 0;
+            font-size: 16px;
+          }
+
+          p:first-child {
+            display: block;
+            text-overflow: ellipsis;
+            max-width: 320px;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+        }
+      }
+    }
   }
 
   .sidebar {

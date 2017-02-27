@@ -1,12 +1,10 @@
-<ul class="menu" ng-model="myVar">
+
+<ul class="menu">
     <li>
         <h3>View by:</h3>
     </li>
-    <li ng-class="getClass('/grid')" value="grid">
-        <a href="#!/grid"><img alt="grid" class="tiled-icon" src="https://cdn0.iconfinder.com/data/icons/elysium-icons/24/Grid.png"></a>
-    </li>
-    <li ng-class="getClass('/list')" value="list">
-        <a href="#!/list"><img alt="list" class="tiled-icon" src="https://cdn0.iconfinder.com/data/icons/elysium-icons/24/ViewType_Details.png"></a>
+    <li ng-repeat="template in templates">
+        <button ng-class="[template.name, tclass]" ng-click="selectTemplate(template)">{{template.name}}</button>
     </li>
 </ul>
 

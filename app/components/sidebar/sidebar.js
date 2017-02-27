@@ -13,16 +13,7 @@ angular.module('myApp.sidebar', [])
             templateUrl: '/components/sidebar/sidebar.html',
             link: function(scope, element,attrs) {
 
-                // get categories
-/*                $http.get('/model/data.json').success(function(data) {
-                    scope.categories = angular.fromJson(data.categories);
-                });*/
-
                 scope.cols = ["timestamp", "score"]
-
-                scope.getClass = function (path) {
-                    return ($location.path().substr(0, path.length) === path) ? 'selected' : '';
-                }
 
                 scope.registerClick = function () {
                     element.toggleClass("isShown");

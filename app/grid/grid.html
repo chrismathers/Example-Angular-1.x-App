@@ -1,9 +1,10 @@
-<div class="flex" ng-repeat="article in filteredArticles | filter:query | orderBy:sort">
-    <div ng-class="'cat-div cat' + article.category">
-        <h3>{{ article.title }} - {{$index}}</h3>
-        <p>{{ article.timestamp | date:'longDate' }}</p>
-        <p>Score: {{ article.score }}</p>
-        <p ng-class="'category' + article.category"><!--{{ article.category }}--></p>
-        <div class="html" ng-bind-html="$sce.trustAsHtml(article.html)" ng-click="goTo('/detail/' + article.id)"></div>
+<div class="grid">
+    <div class="flex" ng-repeat="article in filteredArticles | filter:query | orderBy:sort">
+        <div ng-class="'cat-div cat' + article.category">
+            <h3>{{ article.title }}</h3>
+            <p>{{ article.timestamp | date:'longDate' }}</p>
+            <p>Score: {{ article.score }}</p>
+            <div class="html" ng-bind-html="$sce.trustAsHtml(article.html)" ng-click="goTo('/detail/' + article.id)"></div>
+        </div>
     </div>
 </div>

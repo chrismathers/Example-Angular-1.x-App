@@ -1,7 +1,4 @@
 /* app css stylesheet */
-body {
-  margin: 10px; }
-
 .flex {
   display: flex; }
 
@@ -31,11 +28,28 @@ ul {
 h3 {
   margin: 13px 0 0 0; }
 
+.logo {
+  background: black;
+  margin: 0 0 10px 0;
+  padding: 4px 0 4px 10px; }
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
   margin-bottom: 1em;
   padding: 0 0 0.5em; }
+  .menu button {
+    border: none;
+    text-indent: -6000px;
+    width: 24px;
+    outline: none;
+    opacity: .5; }
+    .menu button.selected {
+      opacity: 1; }
+    .menu button.grid {
+      background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/Grid.png) no-repeat 0 0; }
+    .menu button.list {
+      background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/ViewType_Details.png) no-repeat 0 0; }
   .menu h3 {
     display: inline-block; }
   .menu > li {
@@ -53,7 +67,8 @@ h3 {
   overflow: hidden;
   overflow-y: auto;
   max-height: 90vh;
-  max-width: 75vw; }
+  max-width: 63vw;
+  margin: 10px; }
   .grid-content table th,
   .grid-content table td {
     text-align: left;
@@ -78,7 +93,38 @@ h3 {
     display: block; }
   .grid-content .grid {
     display: flex;
-    flex-direction: row; }
+    flex-direction: row;
+    flex-direction: row;
+    overflow: hidden;
+    flex-wrap: wrap;
+    max-width: 1157px; }
+    .grid-content .grid .flex {
+      display: flex;
+      max-height: 200px;
+      overflow: hidden;
+      min-width: 214px;
+      max-width: 214px;
+      margin-bottom: 15px; }
+      .grid-content .grid .flex .cat-div {
+        border-left: none;
+        border-top: 10px solid; }
+        .grid-content .grid .flex .cat-div.cat1 {
+          border-color: #16a765; }
+        .grid-content .grid .flex .cat-div.cat2 {
+          border-color: #737373; }
+        .grid-content .grid .flex .cat-div.cat3 {
+          border-color: #4986e7; }
+        .grid-content .grid .flex .cat-div.cat4 {
+          border-color: #e9b330; }
+        .grid-content .grid .flex .cat-div h3 {
+          margin: 2px 0 5px 0;
+          font-size: 16px; }
+        .grid-content .grid .flex .cat-div p:first-child {
+          display: block;
+          text-overflow: ellipsis;
+          max-width: 192px;
+          white-space: nowrap;
+          overflow: hidden; }
 
 table {
   width: 100%; }
@@ -98,7 +144,8 @@ table {
 .categoryFacet {
   display: flex;
   width: 75%;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  margin-bottom: 1em; }
   .categoryFacet label {
     white-space: nowrap;
     min-width: 102px;
@@ -165,6 +212,35 @@ select {
 
   .grid-content {
     max-width: 100vh; }
+    .grid-content .grid .flex {
+      display: flex;
+      overflow: hidden;
+      margin-bottom: 15px;
+      width: 100%;
+      min-width: 214px;
+      max-width: none;
+      max-height: 200px; }
+      .grid-content .grid .flex .cat-div {
+        border-left: none;
+        border-top: 10px solid;
+        width: 100%; }
+        .grid-content .grid .flex .cat-div.cat1 {
+          border-color: #16a765; }
+        .grid-content .grid .flex .cat-div.cat2 {
+          border-color: #737373; }
+        .grid-content .grid .flex .cat-div.cat3 {
+          border-color: #4986e7; }
+        .grid-content .grid .flex .cat-div.cat4 {
+          border-color: #e9b330; }
+        .grid-content .grid .flex .cat-div h3 {
+          margin: 2px 0 5px 0;
+          font-size: 16px; }
+        .grid-content .grid .flex .cat-div p:first-child {
+          display: block;
+          text-overflow: ellipsis;
+          max-width: 320px;
+          white-space: nowrap;
+          overflow: hidden; }
 
   .sidebar {
     display: none; }
