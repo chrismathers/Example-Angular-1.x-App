@@ -106,7 +106,7 @@ h3 {
   overflow: hidden;
   overflow-y: auto;
   max-height: 90vh;
-  max-width: 63vw;
+  max-width: 1000px;
   margin: 10px;
 
   table th,
@@ -150,14 +150,14 @@ h3 {
     flex-direction: row;
     overflow: hidden;
     flex-wrap: wrap;
-    max-width: 1157px;
+    max-width: 1062px;
 
     .flex {
       display: flex;
       max-height: 200px;
       overflow: hidden;
-      min-width: 214px;
-      max-width: 214px;
+      min-width: 180px;
+      max-width: 180px;
       margin-bottom: 15px;
 
       .cat-div {
