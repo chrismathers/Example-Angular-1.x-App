@@ -9,3 +9,4 @@ tmp
 /app/.sass-cache/*
 /app/grid/cat-check-filter.js
 /app/grid/category-checkbox-filter.js
+/app/.sass-cache/
