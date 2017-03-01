@@ -1,17 +1,9 @@
 
-<ul class="menu">
-    <li>
-        <h3>View by:</h3>
-    </li>
-    <li ng-repeat="template in templates">
-        <button id="{{template.name}}"
-                ng-init="$index ? template.isSelected = false : template.isSelected = true"
-                ng-class="template.isSelected ? ' selected ' : ''"
-                class="{{template.name}}"
-                ng-click="selectTemplate(template)">{{template.name}}
-        </button>
-    </li>
-</ul>
+<div class="menu">
+    <h3>View by:</h3>
+    <button ng-class="{selected: onactive}" class="grid" ng-click="changeView('on', 'content/grid.html')">on</button>
+    <button ng-class="{selected: offactive}" class="list" ng-click="changeView('off', 'content/list.html')">off</button>
+</div>
 
 <p>
     <b>Sort by:</b>&nbsp;

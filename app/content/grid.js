@@ -10,21 +10,19 @@ angular.module('myApp.grid', ['ngRoute'])
 
     .controller('gridCtrl', ['$scope', '$http', '$sce', '$location', '$filter', function($scope, $http, $sce, $location, $filter) {
 
-        $scope.name = 'grid';
-        $scope.templates=[
-            {
-                name:'grid',
-                url:'content/grid.html'
-            }
-            ,{
-                name:'list',
-                url:'content/list.html'
-            }
-        ]
+        $scope.onactive = true;
+        $scope.offactive = false;
+        $scope.selectedTemplate = 'content/grid.html';
 
-        $scope.selectedTemplate = $scope.templates[0].url;
-        $scope.selectTemplate = function(template) {
-            $scope.selectedTemplate = template.url;
+        $scope.changeView = function(button, template) {
+            if (button === 'on') {
+                $scope.onactive = true;
+                $scope.offactive = false;
+            } else if (button === 'off') {
+                $scope.onactive = false;
+                $scope.offactive = true;
+            }
+            $scope.selectedTemplate = template;
         };
 
 

@@ -69,6 +69,10 @@ h3 {
   border-bottom: 0.1em solid black;
   margin-bottom: 1em;
   padding: 0 0 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 148px;
 
   button {
     border: none;
