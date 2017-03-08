@@ -28,6 +28,10 @@ $color2: #737373;
 $color3: #4986e7;
 $color4: #e9b330;
 
+body {
+  overflow: hidden;
+}
+
 .category1 {
   background-color: $color1;
 }
@@ -122,12 +126,6 @@ h3 {
   width: 100%;
   margin: 10px;
 
-  table th,
-  table td {
-    text-align: left;
-    padding: 0 10px;
-  }
-
   .cat-div {
     margin: 0 10px 20px;
     border-left: 10px solid;
@@ -151,11 +149,9 @@ h3 {
       cursor: pointer;
     }
   }
-  .html p {
-    display: none;
-  }
-  .html p:first-child {
-    display: block;
+
+  .html:hover {
+    color: #777;
   }
 
   .grid {
@@ -194,43 +190,29 @@ h3 {
           font-size: 16px;
         }
 
-        p:first-child {
-          display: block;
-          text-overflow: ellipsis;
-          max-width: 150px;
-          white-space: nowrap;
-          overflow: hidden;
+        .html p {
+          display: none;
+          &:first-child {
+            display: block;
+            text-overflow: ellipsis;
+            max-width: 150px;
+            white-space: nowrap;
+            overflow: hidden;
+          }
         }
       }
     }
   }
 
-}
-
-table {
-  width: 100%;
-
-  th {
-    border-bottom: 1px solid #777;
-    font-size: 14px;
-  }
-
-  td {
-    border: 1px solid #eaeaea;
-    font-size: 13px;
-
-    p {
-      margin: 6px 0;
+  .list {
+    .html p {
+      font-weight: normal;
     }
-
-    &:nth-child(2) {
-      min-width: 114px;
-    }
-
-    &:nth-child(5) {
-      cursor: pointer;
+    .html p:first-child {
+      font-weight: bold;
     }
   }
+
 }
 
 .categoryFacet {

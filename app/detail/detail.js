@@ -5,7 +5,9 @@ angular.module('myApp.detail', ['ngRoute'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/detail/:articleId', {
             controller: 'detailCtrl',
-            templateUrl: function(articleId){ console.log('params ' +articleId); return 'detail/detail.html' }
+            templateUrl: function(articleId){
+                return 'detail/detail.html'
+            }
         });
     }])
 
@@ -35,7 +37,7 @@ angular.module('myApp.detail', ['ngRoute'])
         }
     }])
 
-    .directive('detailContent', function( $http, $location, $routeParams ) {
+    .directive('detailContent', function() {
 
         return {
             restrict: 'AEC',

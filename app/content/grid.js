@@ -8,11 +8,24 @@ angular.module('myApp.grid', ['ngRoute'])
         });
     }])
 
-    .controller('gridCtrl', ['$scope', '$http', '$sce', '$location', '$filter', function($scope, $http, $sce, $location, $filter) {
+    .controller('gridCtrl', ['$scope', '$http', '$sce', '$location', function($scope, $http, $sce, $location) {
 
+        $scope.useCategory = {};
+        $scope.$sce = $sce;
+        $scope.sort = 'timestamp';
         $scope.onactive = true;
         $scope.offactive = false;
-        $scope.selectedTemplate = 'content/grid.html';
+        $scope.selectedTemplate = 'content/list.html';
+
+        // get articles
+        $http.get('/model/data.json').success(function(data) {
+            $scope.articles = angular.fromJson(data.articles);
+        });
+
+        // get categories
+        $http.get('/model/data.json').success(function(data) {
+            $scope.categories = angular.fromJson(data.categories);
+        });
 
         $scope.changeView = function(button, template) {
             if (button === 'on') {
@@ -37,20 +50,6 @@ angular.module('myApp.grid', ['ngRoute'])
             return result;
         };
 
-        $scope.useCategory = {};
-        $scope.$sce = $sce;
-        $scope.sort = 'timestamp';
-
-        // get articles
-        $http.get('/model/data.json').success(function(data) {
-            $scope.articles = angular.fromJson(data.articles);
-        });
-
-        // get categories
-        $http.get('/model/data.json').success(function(data) {
-            $scope.categories = angular.fromJson(data.categories);
-        });
-
         $scope.goTo = function ( path ) {
             $location.path(path);
         };
@@ -65,7 +64,6 @@ angular.module('myApp.grid', ['ngRoute'])
             function (value) {
                 var selected;
 
-                //$scope.categoryGroup = uniqueItems($scope.categories, 'id');
                 $scope.categoryGroup = uniqueItems($scope.articles, 'category');
 
                 var filterAfterCategory = [];

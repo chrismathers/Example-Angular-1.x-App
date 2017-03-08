@@ -10,6 +10,9 @@
   display: flex;
   flex-direction: row; }
 
+body {
+  overflow: hidden; }
+
 .category1 {
   background-color: #16a765; }
 
@@ -83,10 +86,6 @@ h3 {
   max-width: 1000px;
   width: 100%;
   margin: 10px; }
-  .grid-content table th,
-  .grid-content table td {
-    text-align: left;
-    padding: 0 10px; }
   .grid-content .cat-div {
     margin: 0 10px 20px;
     border-left: 10px solid;
@@ -103,10 +102,8 @@ h3 {
     margin: 0; }
     .grid-content p:hover {
       cursor: pointer; }
-  .grid-content .html p {
-    display: none; }
-  .grid-content .html p:first-child {
-    display: block; }
+  .grid-content .html:hover {
+    color: #777; }
   .grid-content .grid {
     display: flex;
     flex-direction: row;
@@ -135,27 +132,18 @@ h3 {
         .grid-content .grid .flex .cat-div h3 {
           margin: 2px 0 5px 0;
           font-size: 16px; }
-        .grid-content .grid .flex .cat-div p:first-child {
-          display: block;
-          text-overflow: ellipsis;
-          max-width: 150px;
-          white-space: nowrap;
-          overflow: hidden; }
-
-table {
-  width: 100%; }
-  table th {
-    border-bottom: 1px solid #777;
-    font-size: 14px; }
-  table td {
-    border: 1px solid #eaeaea;
-    font-size: 13px; }
-    table td p {
-      margin: 6px 0; }
-    table td:nth-child(2) {
-      min-width: 114px; }
-    table td:nth-child(5) {
-      cursor: pointer; }
+        .grid-content .grid .flex .cat-div .html p {
+          display: none; }
+          .grid-content .grid .flex .cat-div .html p:first-child {
+            display: block;
+            text-overflow: ellipsis;
+            max-width: 150px;
+            white-space: nowrap;
+            overflow: hidden; }
+  .grid-content .list .html p {
+    font-weight: normal; }
+  .grid-content .list .html p:first-child {
+    font-weight: bold; }
 
 .categoryFacet {
   display: flex;

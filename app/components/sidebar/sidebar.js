@@ -2,16 +2,12 @@
 
 angular.module('myApp.sidebar', [])
 
-    .controller('sidebarCtrl', ['$scope', '$http',  function($scope, $http) {
-
-    }])
-
-    .directive('sidebarContent', function( $http, $location, $routeParams ) {
+    .directive('sidebarContent', function( ) {
 
         return {
             restrict: 'AEC',
             templateUrl: '/components/sidebar/sidebar.html',
-            link: function(scope, element,attrs) {
+            link: function(scope, element) {
 
                 scope.cols = ["timestamp", "score"]
 
