@@ -52,7 +52,6 @@ angular.module('myApp.grid', ['ngRoute'])
         });
 
         $scope.goTo = function ( path ) {
-            console.log("grid path " +path);
             $location.path(path);
         };
 

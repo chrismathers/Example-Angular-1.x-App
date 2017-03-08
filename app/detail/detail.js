@@ -28,21 +28,17 @@ angular.module('myApp.detail', ['ngRoute'])
             var result = [];
             for(var i = 0 ; i < $scope.categories.length ; i++){
                 if(catId === $scope.categories[i].id){
-                    console.log("title " + $scope.categories[i].title);
                     break;
                 }
             }
-            //console.log(result[0]);
             return $scope.categories[i].title;
         }
-
     }])
 
     .directive('detailContent', function( $http, $location, $routeParams ) {
 
         return {
             restrict: 'AEC',
-            //template: '<h2 ng-class=\"facetCategory1\">Article Category: {{getCatName(article.category)}}</h2>',
             link: function(scope, element,attrs) {
                 scope.getArticleCategory = function (catId) {
                     var result = [];
@@ -51,7 +47,6 @@ angular.module('myApp.detail', ['ngRoute'])
                             result.push($scope.categories[i]);
                         }
                     }
-                    console.log(parentId);
                     return result;
                 }
 
