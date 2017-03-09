@@ -261,7 +261,7 @@ select {
   .grid-content {
     max-height: 100vh;
     max-width: 99vw;
-    margin: 7px 0 0 0; }
+    margin: 12px 0 0 0; }
     .grid-content .grid .flex {
       display: flex;
       overflow: hidden;
@@ -293,8 +293,20 @@ select {
           overflow: hidden; }
 
   .sidebar {
+    margin-top: -10px;
+    padding-top: 6px;
     display: none;
     width: 100%; }
+    .sidebar:after {
+      content: '';
+      position: absolute;
+      top: 48px;
+      height: 9px;
+      width: 100%;
+      left: 0;
+      -webkit-box-shadow: 0 5px 9px 0 #dbdbdb;
+      -moz-box-shadow: 0 5px 9px 0 #dbdbdb;
+      box-shadow: 0 5px 9px 0 #dbdbdb; }
     .sidebar.isShown {
       display: block; }
     .sidebar .header-content {

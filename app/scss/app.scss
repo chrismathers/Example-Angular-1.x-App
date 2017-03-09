@@ -355,7 +355,7 @@ select {
   .grid-content {
     max-height: 100vh;
     max-width: 99vw;
-    margin: 7px 0 0 0;
+    margin: 12px 0 0 0;
 
     .grid {
       .flex {
@@ -402,8 +402,22 @@ select {
   }
 
   .sidebar {
+    margin-top: -10px; // push away from drop-shadow
+    padding-top: 6px;
     display: none;
     width: 100%;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 48px;
+      height: 9px;
+      width: 100%;
+      left: 0;
+      -webkit-box-shadow: 0 5px 9px 0 #dbdbdb;
+      -moz-box-shadow: 0 5px 9px 0 #dbdbdb;
+      box-shadow: 0 5px 9px 0 #dbdbdb;
+
+    }
 
     &.isShown {
       display: block;
