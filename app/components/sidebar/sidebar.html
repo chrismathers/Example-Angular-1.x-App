@@ -1,15 +1,15 @@
+<div class="header-content">
+    <div class="menu-left">
+        <h3>View by:</h3>
+        <button ng-class="{selected: onactive}" class="list" ng-click="changeView('on', 'content/list.html')">off</button>
+        <button ng-class="{selected: offactive}" class="grid" ng-click="changeView('off', 'content/grid.html')">on</button>
+    </div>
 
-<div class="menu">
-    <h3>View by:</h3>
-    <button ng-class="{selected: onactive}" class="list" ng-click="changeView('on', 'content/list.html')">off</button>
-    <button ng-class="{selected: offactive}" class="grid" ng-click="changeView('off', 'content/grid.html')">on</button>
+    <div class="menu-right">
+        <h3>Sort by:&nbsp;</h3>
+        <select class="sortBy" ng-options="col for col in cols" ng-model="sort"></select>
+    </div>
 </div>
-
-<p>
-    <b>Sort by:</b>&nbsp;
-    <select class="sortBy" ng-options="col for col in cols" ng-model="sort"></select>
-</p>
-
 <!--
 In case anybody wants to filter by select instead of dropdown
 <h3>Filter by:</h3>

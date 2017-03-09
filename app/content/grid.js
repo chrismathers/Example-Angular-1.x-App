@@ -41,13 +41,15 @@ angular.module('myApp.grid', ['ngRoute'])
 
         var uniqueItems = function (data, key) {
             var result = [];
-            for (var i = 0; i < data.length; i++) {
-                var value = data[i][key];
-                if (result.indexOf(value) == -1) {
-                    result.push(value);
+            if(data != null) {
+                for (var i = 0; i < data.length; i++) {
+                    var value = data[i][key];
+                    if (result.indexOf(value) == -1) {
+                        result.push(value);
+                    }
                 }
+                return result;
             }
-            return result;
         };
 
         $scope.goTo = function ( path ) {

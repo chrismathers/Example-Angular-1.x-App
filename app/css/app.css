@@ -29,13 +29,12 @@ ul {
   margin: 0; }
 
 h3 {
-  margin: 13px 0 0 0; }
+  margin: 0; }
 
 .logo {
   display: flex;
   flex-direction: row;
   background: black;
-  margin: 0 0 10px 0;
   padding: 4px 0 4px 10px; }
   .logo a {
     flex-grow: 1; }
@@ -43,39 +42,42 @@ h3 {
     color: white;
     margin-right: 20px; }
 
-.menu {
+.header-content h3 {
+  font-size: 15px;
+  display: inline-block;
+  white-space: nowrap; }
+.header-content .menu-left,
+.header-content .menu-right {
+  margin-bottom: 14px; }
+.header-content .menu-left {
   list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 1em;
   padding: 0 0 0.5em;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   width: 148px; }
-  .menu button {
+  .header-content .menu-left button {
     border: none;
     text-indent: -6000px;
     width: 24px;
     outline: none;
     cursor: pointer;
     opacity: .5; }
-    .menu button.selected {
+    .header-content .menu-left button.selected {
       opacity: 1;
       cursor: default; }
-    .menu button.grid {
+    .header-content .menu-left button.grid {
       background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/Grid.png) no-repeat 0 0; }
-    .menu button.list {
+    .header-content .menu-left button.list {
       background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/ViewType_Details.png) no-repeat 0 0; }
-  .menu h3 {
-    display: inline-block; }
-  .menu > li {
+  .header-content .menu-left > li {
     display: inline;
     margin: 10px 10px 20px 0; }
-  .menu > li a {
+  .header-content .menu-left > li a {
     display: inline;
     margin: 10px 10px 20px 0;
     opacity: .5; }
-  .menu > li.selected a {
+  .header-content .menu-left > li.selected a {
     opacity: 1; }
 
 .grid-content {
@@ -85,7 +87,7 @@ h3 {
   max-height: 90vh;
   max-width: 1000px;
   width: 100%;
-  margin: 10px; }
+  margin: 10px 0 0 0; }
   .grid-content .cat-div {
     margin: 0 10px 20px;
     border-left: 10px solid;
@@ -175,7 +177,15 @@ h3 {
 
 .sidebar {
   min-width: 200px;
-  margin: 0 20px; }
+  padding: 10px 0 0 20px;
+  background-color: aliceblue;
+  max-height: 100vh; }
+  .sidebar .menu-right {
+    white-space: nowrap;
+    margin-right: 20px; }
+    .sidebar .menu-right h3 {
+      display: inline-block;
+      white-space: nowrap; }
 
 .tiled-icon {
   max-width: 128px;
@@ -224,10 +234,15 @@ select {
 
   .content {
     display: flex;
-    flex-direction: column-reverse; }
+    flex-direction: column-reverse;
+    position: absolute;
+    bottom: 0;
+    top: 100px; }
 
   .grid-content {
-    max-width: 100vh; }
+    max-height: 100vh;
+    max-width: 99vw;
+    margin: 0; }
     .grid-content .grid .flex {
       display: flex;
       overflow: hidden;
@@ -259,8 +274,34 @@ select {
           overflow: hidden; }
 
   .sidebar {
-    display: none; }
+    display: none;
+    margin-bottom: 12px; }
     .sidebar.isShown {
-      display: block; } }
+      display: block; }
+    .sidebar .header-content {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      flex-wrap: nowrap; }
+      .sidebar .header-content .menu-left {
+        width: auto;
+        margin: 0 10px .2em 0;
+        flex-grow: 1;
+        justify-content: flex-start;
+        border-bottom: none; }
+    .sidebar button {
+      margin: 0 13px 0 6px; }
+    .sidebar .categoryFacet {
+      width: 100%;
+      justify-content: space-around;
+      margin-bottom: .2em; }
+      .sidebar .categoryFacet label {
+        white-space: nowrap;
+        min-width: 108px;
+        justify-content: space-between;
+        margin-right: 35px; } }
+@media screen and (max-width: 640px) and (min-width: 470px) {
+  .sidebar .categoryFacet label {
+    min-width: 39px; } }
 
 /*# sourceMappingURL=app.css.map */

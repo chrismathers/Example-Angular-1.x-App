@@ -50,14 +50,13 @@ ul {
 }
 
 h3 {
-  margin: 13px 0 0 0;
+  margin: 0;
 
 }
 
 .logo {
   @include flex-row;
   background: black;
-  margin: 0 0 10px 0;
   padding: 4px 0 4px 10px;
   a {
     flex-grow: 1;
@@ -68,52 +67,57 @@ h3 {
   }
 }
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 1em;
-  padding: 0 0 0.5em;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  width: 148px;
-
-  button {
-    border: none;
-    text-indent: -6000px;
-    width: 24px;
-    outline: none;
-    cursor: pointer;
-    opacity: .5;
-    &.selected {
-      opacity: 1;
-      cursor: default;
-    }
-    &.grid {
-      background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/Grid.png) no-repeat 0 0;
-    }
-    &.list {
-      background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/ViewType_Details.png) no-repeat 0 0;
-    }
-  }
-
-
+.header-content {
   h3 {
+    font-size: 15px;
     display: inline-block;
+    white-space: nowrap;
+  }
+  .menu-left,
+  .menu-right {
+    margin-bottom: 14px;
   }
 
-  > li {
-    display: inline;
-    margin: 10px 10px 20px 0;
-  }
-  > li a {
-    display: inline;
-    margin: 10px 10px 20px 0;
-    opacity: .5;
-  }
+  .menu-left {
+    list-style: none;
+    padding: 0 0 0.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 148px;
 
-  > li.selected a {
-    opacity: 1;
+    button {
+      border: none;
+      text-indent: -6000px;
+      width: 24px;
+      outline: none;
+      cursor: pointer;
+      opacity: .5;
+      &.selected {
+        opacity: 1;
+        cursor: default;
+      }
+      &.grid {
+        background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/Grid.png) no-repeat 0 0;
+      }
+      &.list {
+        background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/ViewType_Details.png) no-repeat 0 0;
+      }
+    }
+
+    > li {
+      display: inline;
+      margin: 10px 10px 20px 0;
+    }
+    > li a {
+      display: inline;
+      margin: 10px 10px 20px 0;
+      opacity: .5;
+    }
+
+    > li.selected a {
+      opacity: 1;
+    }
   }
 }
 
@@ -124,7 +128,7 @@ h3 {
   max-height: 90vh;
   max-width: 1000px;
   width: 100%;
-  margin: 10px;
+  margin: 10px 0 0 0;
 
   .cat-div {
     margin: 0 10px 20px;
@@ -248,7 +252,18 @@ h3 {
 
 .sidebar {
   min-width: 200px;
-  margin: 0 20px;
+  padding: 10px 0 0 20px;
+  background-color: aliceblue;
+  max-height: 100vh;
+
+  .menu-right {
+    white-space: nowrap;
+    margin-right: 20px;
+    h3 {
+      display: inline-block;
+      white-space: nowrap;
+    }
+  }
 }
 
 .tiled-icon {
@@ -315,10 +330,15 @@ select {
   .content {
     display: flex;
     flex-direction: column-reverse;
+    position: absolute;
+    bottom: 0;
+    top: 100px;
   }
 
   .grid-content {
-    max-width: 100vh;
+    max-height: 100vh;
+    max-width: 99vw;
+    margin: 0;
 
     .grid {
       .flex {
@@ -366,8 +386,50 @@ select {
 
   .sidebar {
     display: none;
+    margin-bottom: 12px;
     &.isShown {
       display: block;
+    }
+
+    .header-content {
+      @include flex-row;
+      width: 100%;
+      flex-wrap: nowrap;
+
+      .menu-left {
+        width: auto;
+        margin: 0 10px .2em 0;
+        flex-grow: 1;
+        justify-content: flex-start;
+        border-bottom: none;
+      }
+    }
+
+    button {
+      margin: 0 13px 0 6px;
+    }
+
+    .categoryFacet {
+      width: 100%;
+      justify-content: space-around;
+      margin-bottom: .2em;
+
+      label {
+        white-space: nowrap;
+        min-width: 108px;
+        justify-content: space-between;
+        margin-right: 35px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) and (min-width: 470px)  {
+  .sidebar {
+    .categoryFacet {
+      label {
+        min-width: 39px;
+      }
     }
   }
 }
