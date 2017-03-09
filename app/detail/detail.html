@@ -1,4 +1,4 @@
-<div class="fullArticle" ng-repeat="article in articles" ng-show="article.id == articleId">
+<div class="full-article" ng-repeat="article in articles" ng-show="article.id == articleId">
     <h2 ng-class="'facetCategory' + article.category">{{getArticleCategory(article.category)}}</h2>
     <p>{{ article.timestamp | date:'longDate' }}</p>
     <h3 class="subs">{{article.title}}</h3>

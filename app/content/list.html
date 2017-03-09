@@ -1,10 +1,8 @@
-<div class="list">
-    <div class="list" ng-repeat="article in filteredArticles | filter:query | orderBy:sort">
-        <div ng-class="'cat-div cat' + article.category">
-            <h3>{{ article.title }}</h3>
-            <p>{{ article.timestamp | date:'longDate' }}</p>
-            <p>Score: {{ article.score }}</p>
-            <div class="html" ng-bind-html="$sce.trustAsHtml(article.html)" ng-click="goTo('/detail/' + article.id)"></div>
-        </div>
+<div class="list" ng-repeat="article in filteredArticles | filter:query | orderBy:sort">
+    <div ng-class="'cat-div cat' + article.category">
+        <h3>{{ article.title }}</h3>
+        <p>{{ article.timestamp | date:'longDate' }}</p>
+        <p>Score: {{ article.score }}</p>
+        <div class="html" ng-bind-html="$sce.trustAsHtml(article.html)" ng-click="goTo('/detail/' + article.id)"></div>
     </div>
 </div>

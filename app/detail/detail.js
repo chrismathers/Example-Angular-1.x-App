@@ -28,12 +28,14 @@ angular.module('myApp.detail', ['ngRoute'])
 
         $scope.getArticleCategory = function (catId) {
             var result = [];
-            for(var i = 0 ; i < $scope.categories.length ; i++){
-                if(catId === $scope.categories[i].id){
-                    break;
+            if($scope.categories != null) {
+                for(var i = 0 ; i < $scope.categories.length ; i++){
+                    if(catId === $scope.categories[i].id){
+                        break;
+                    }
                 }
+                return $scope.categories[i].title;
             }
-            return $scope.categories[i].title;
         }
     }])
 
@@ -44,12 +46,14 @@ angular.module('myApp.detail', ['ngRoute'])
             link: function(scope, element,attrs) {
                 scope.getArticleCategory = function (catId) {
                     var result = [];
-                    for(var i = 0 ; i < $scope.categories.length ; i++){
-                        if(catId === $scope.categories[i].catId){
-                            result.push($scope.categories[i]);
+                    if($scope.categories != null) {
+                        for(var i = 0 ; i < $scope.categories.length ; i++){
+                            if(catId === $scope.categories[i].catId){
+                                result.push($scope.categories[i]);
+                            }
                         }
+                        return result;
                     }
-                    return result;
                 }
 
             }

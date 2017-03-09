@@ -27,9 +27,17 @@ $color1: #16a765;
 $color2: #737373;
 $color3: #4986e7;
 $color4: #e9b330;
+$bg-color1: #dbf5fe;
+$bg-color2: #f1faff;
 
 body {
   overflow: hidden;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcf1fc+0,f1faff+100 */
+  background: $bg-color1; /* Old browsers */
+  background: -moz-linear-gradient(top, $bg-color1 0%, $bg-color2 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, $bg-color1 0%,$bg-color2 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, $bg-color1 0%,$bg-color2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$bg-color1', endColorstr='$bg-color2',GradientType=0 ); /* IE6-9 */
 }
 
 .category1 {
@@ -58,15 +66,16 @@ h3 {
   @include flex-row;
   background: black;
   padding: 4px 0 4px 10px;
+  margin-bottom: -1px; //drop shadow issue
 
   &:after {
     content: '';
     position: absolute;
-    top: 52px;
-    -webkit-box-shadow: 0px 9px 5px 0px #dbdbdb;
-    -moz-box-shadow: 0px 9px 5px 0px #dbdbdb;
-    box-shadow: 0px 9px 5px 0px #dbdbdb;
-    height: 9px;
+    top: 51px;
+    -webkit-box-shadow: 0px 9px 5px 0px rgba(219,219,219,0.88);
+    -moz-box-shadow: 0px 9px 5px 0px rgba(219,219,219,0.88);
+    box-shadow: 0px 9px 5px 0px rgba(219,219,219,0.88);
+    height: 10px;
     width: 100%;
     left: 0;
   }
@@ -134,14 +143,23 @@ h3 {
   }
 }
 
+.content-container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.content {
+  height: 100%;
+}
+
 .grid-content {
   flex-grow: 1;
   overflow: hidden;
   overflow-y: auto;
   max-height: 90vh;
-  max-width: 1000px;
-  width: 100%;
   margin: 10px 0 0 0;
+  padding-top: 10px;
+  background: white;
 
   .cat-div {
     margin: 0 10px 20px;
@@ -266,13 +284,11 @@ h3 {
 .sidebar {
   min-width: 200px;
   padding: 20px 0 0 20px;
+  background: rgb(255, 250, 240);
+  border-right: 1px solid #ccc;
+  margin-top: 10px;
   max-height: 100vh;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcf1fc+0,f1faff+100 */
-  background: #dcf1fc; /* Old browsers */
-  background: -moz-linear-gradient(top, #dcf1fc 0%, #f1faff 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #dcf1fc 0%,#f1faff 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #dcf1fc 0%,#f1faff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcf1fc', endColorstr='#f1faff',GradientType=0 ); /* IE6-9 */
+  position: relative;
 
   .menu-right {
     white-space: nowrap;
@@ -316,8 +332,12 @@ select {
   }
 }
 
-.fullArticle {
-  margin: 20px;
+.full-article {
+  margin: 10px 0 0 0;
+  max-width: 1200px;
+  height: 100vh;
+  background: white;
+  padding: 10px;
 
   .fullArticle p:nth-child(1) {
     font-weight: bold;
@@ -350,12 +370,14 @@ select {
     position: absolute;
     bottom: 0;
     top: 70px;
+    margin: 0 auto;
+    max-width: 1200px;
   }
 
   .grid-content {
     max-height: 100vh;
-    max-width: 99vw;
-    margin: 12px 0 0 0;
+    margin: 0 0 0 0;
+    padding-top: 10px;
 
     .grid {
       .flex {
@@ -409,7 +431,7 @@ select {
     &:after {
       content: '';
       position: absolute;
-      top: 48px;
+      bottom: 0;
       height: 9px;
       width: 100%;
       left: 0;
@@ -427,13 +449,22 @@ select {
       @include flex-row;
       width: 100%;
       flex-wrap: nowrap;
+      margin: 2px 0 0 0;
 
       .menu-left {
         width: auto;
-        margin: 0 10px .2em 0;
+        margin: 0 10px 0 0;
         flex-grow: 1;
         justify-content: flex-start;
+        align-items: center;
         border-bottom: none;
+      }
+
+      .menu-right {
+        margin-bottom: 0;
+        flex-grow: 1;
+        text-align: right;
+        padding-right: 20px;
       }
     }
 
@@ -445,6 +476,7 @@ select {
       width: 100%;
       justify-content: space-around;
       margin-bottom: .2em;
+      font-size: 15px;
 
       label {
         white-space: nowrap;
@@ -456,7 +488,7 @@ select {
   }
 }
 
-@media screen and (max-width: 640px) and (min-width: 470px)  {
+@media screen and (max-width: 640px) and (min-width: 433px)  {
   .sidebar {
     .categoryFacet {
       label {

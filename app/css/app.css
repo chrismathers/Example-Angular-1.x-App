@@ -11,7 +11,18 @@
   flex-direction: row; }
 
 body {
-  overflow: hidden; }
+  overflow: hidden;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcf1fc+0,f1faff+100 */
+  background: #dbf5fe;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #dbf5fe 0%, #f1faff 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #dbf5fe 0%, #f1faff 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #dbf5fe 0%, #f1faff 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$bg-color1', endColorstr='$bg-color2',GradientType=0 );
+  /* IE6-9 */ }
 
 .category1 {
   background-color: #16a765; }
@@ -35,15 +46,16 @@ h3 {
   display: flex;
   flex-direction: row;
   background: black;
-  padding: 4px 0 4px 10px; }
+  padding: 4px 0 4px 10px;
+  margin-bottom: -1px; }
   .header:after {
     content: '';
     position: absolute;
-    top: 52px;
-    -webkit-box-shadow: 0px 9px 5px 0px #dbdbdb;
-    -moz-box-shadow: 0px 9px 5px 0px #dbdbdb;
-    box-shadow: 0px 9px 5px 0px #dbdbdb;
-    height: 9px;
+    top: 51px;
+    -webkit-box-shadow: 0px 9px 5px 0px rgba(219, 219, 219, 0.88);
+    -moz-box-shadow: 0px 9px 5px 0px rgba(219, 219, 219, 0.88);
+    box-shadow: 0px 9px 5px 0px rgba(219, 219, 219, 0.88);
+    height: 10px;
     width: 100%;
     left: 0; }
   .header a {
@@ -90,14 +102,21 @@ h3 {
   .header-content .menu-left > li.selected a {
     opacity: 1; }
 
+.content-container {
+  margin: 0 auto;
+  max-width: 1200px; }
+
+.content {
+  height: 100%; }
+
 .grid-content {
   flex-grow: 1;
   overflow: hidden;
   overflow-y: auto;
   max-height: 90vh;
-  max-width: 1000px;
-  width: 100%;
-  margin: 10px 0 0 0; }
+  margin: 10px 0 0 0;
+  padding-top: 10px;
+  background: white; }
   .grid-content .cat-div {
     margin: 0 10px 20px;
     border-left: 10px solid;
@@ -188,18 +207,11 @@ h3 {
 .sidebar {
   min-width: 200px;
   padding: 20px 0 0 20px;
+  background: floralwhite;
+  border-right: 1px solid #ccc;
+  margin-top: 10px;
   max-height: 100vh;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcf1fc+0,f1faff+100 */
-  background: #dcf1fc;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #dcf1fc 0%, #f1faff 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #dcf1fc 0%, #f1faff 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #dcf1fc 0%, #f1faff 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcf1fc', endColorstr='#f1faff',GradientType=0 );
-  /* IE6-9 */ }
+  position: relative; }
   .sidebar .menu-right {
     white-space: nowrap;
     margin-right: 20px; }
@@ -231,11 +243,15 @@ select {
       background-color: #e9b330;
       color: #FFF; }
 
-.fullArticle {
-  margin: 20px; }
-  .fullArticle .fullArticle p:nth-child(1) {
+.full-article {
+  margin: 10px 0 0 0;
+  max-width: 1200px;
+  height: 100vh;
+  background: white;
+  padding: 10px; }
+  .full-article .fullArticle p:nth-child(1) {
     font-weight: bold; }
-  .fullArticle .subs {
+  .full-article .subs {
     font-weight: bold;
     color: #999; }
 
@@ -256,12 +272,14 @@ select {
     flex-direction: column-reverse;
     position: absolute;
     bottom: 0;
-    top: 70px; }
+    top: 70px;
+    margin: 0 auto;
+    max-width: 1200px; }
 
   .grid-content {
     max-height: 100vh;
-    max-width: 99vw;
-    margin: 12px 0 0 0; }
+    margin: 0 0 0 0;
+    padding-top: 10px; }
     .grid-content .grid .flex {
       display: flex;
       overflow: hidden;
@@ -300,7 +318,7 @@ select {
     .sidebar:after {
       content: '';
       position: absolute;
-      top: 48px;
+      bottom: 0;
       height: 9px;
       width: 100%;
       left: 0;
@@ -313,25 +331,33 @@ select {
       display: flex;
       flex-direction: row;
       width: 100%;
-      flex-wrap: nowrap; }
+      flex-wrap: nowrap;
+      margin: 2px 0 0 0; }
       .sidebar .header-content .menu-left {
         width: auto;
-        margin: 0 10px .2em 0;
+        margin: 0 10px 0 0;
         flex-grow: 1;
         justify-content: flex-start;
+        align-items: center;
         border-bottom: none; }
+      .sidebar .header-content .menu-right {
+        margin-bottom: 0;
+        flex-grow: 1;
+        text-align: right;
+        padding-right: 20px; }
     .sidebar button {
       margin: 0 13px 0 6px; }
     .sidebar .categoryFacet {
       width: 100%;
       justify-content: space-around;
-      margin-bottom: .2em; }
+      margin-bottom: .2em;
+      font-size: 15px; }
       .sidebar .categoryFacet label {
         white-space: nowrap;
         min-width: 108px;
         justify-content: space-between;
         margin-right: 35px; } }
-@media screen and (max-width: 640px) and (min-width: 470px) {
+@media screen and (max-width: 640px) and (min-width: 433px) {
   .sidebar .categoryFacet label {
     min-width: 39px; } }
 
