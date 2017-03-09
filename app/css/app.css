@@ -31,14 +31,24 @@ ul {
 h3 {
   margin: 0; }
 
-.logo {
+.header {
   display: flex;
   flex-direction: row;
   background: black;
   padding: 4px 0 4px 10px; }
-  .logo a {
+  .header:after {
+    content: '';
+    position: absolute;
+    top: 52px;
+    -webkit-box-shadow: 0px 9px 5px 0px #dbdbdb;
+    -moz-box-shadow: 0px 9px 5px 0px #dbdbdb;
+    box-shadow: 0px 9px 5px 0px #dbdbdb;
+    height: 9px;
+    width: 100%;
+    left: 0; }
+  .header a {
     flex-grow: 1; }
-  .logo p {
+  .header p {
     color: white;
     margin-right: 20px; }
 
@@ -177,9 +187,19 @@ h3 {
 
 .sidebar {
   min-width: 200px;
-  padding: 10px 0 0 20px;
-  background-color: aliceblue;
-  max-height: 100vh; }
+  padding: 20px 0 0 20px;
+  max-height: 100vh;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcf1fc+0,f1faff+100 */
+  background: #dcf1fc;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #dcf1fc 0%, #f1faff 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #dcf1fc 0%, #f1faff 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #dcf1fc 0%, #f1faff 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcf1fc', endColorstr='#f1faff',GradientType=0 );
+  /* IE6-9 */ }
   .sidebar .menu-right {
     white-space: nowrap;
     margin-right: 20px; }
@@ -224,7 +244,6 @@ select {
     display: flex;
     flex-direction: column;
     background: black;
-    margin: 0 0 10px 0;
     padding: 4px 0 4px 10px; }
     .logo a {
       flex-grow: 1; }
@@ -237,12 +256,12 @@ select {
     flex-direction: column-reverse;
     position: absolute;
     bottom: 0;
-    top: 100px; }
+    top: 70px; }
 
   .grid-content {
     max-height: 100vh;
     max-width: 99vw;
-    margin: 0; }
+    margin: 7px 0 0 0; }
     .grid-content .grid .flex {
       display: flex;
       overflow: hidden;
@@ -275,7 +294,7 @@ select {
 
   .sidebar {
     display: none;
-    margin-bottom: 12px; }
+    width: 100%; }
     .sidebar.isShown {
       display: block; }
     .sidebar .header-content {
