@@ -150,6 +150,9 @@ h3 {
 
 .content {
   height: 100%;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  margin-top: 10px;
 }
 
 .grid-content {
@@ -157,7 +160,7 @@ h3 {
   overflow: hidden;
   overflow-y: auto;
   max-height: 90vh;
-  margin: 10px 0 0 0;
+  margin: 0;
   padding-top: 10px;
   background: white;
 
@@ -282,11 +285,9 @@ h3 {
 }
 
 .sidebar {
-  min-width: 200px;
+  width: 200px;
   padding: 20px 0 0 20px;
   background: rgb(255, 250, 240);
-  border-right: 1px solid #ccc;
-  margin-top: 10px;
   max-height: 100vh;
   position: relative;
 
@@ -424,10 +425,10 @@ select {
   }
 
   .sidebar {
+    width: 100%;
     margin-top: -10px; // push away from drop-shadow
     padding-top: 6px;
     display: none;
-    width: 100%;
     &:after {
       content: '';
       position: absolute;
