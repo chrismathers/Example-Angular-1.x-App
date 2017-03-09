@@ -12,16 +12,21 @@
 
 body {
   overflow: hidden;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcf1fc+0,f1faff+100 */
   background: #dbf5fe;
   /* Old browsers */
   background: -moz-linear-gradient(top, #dbf5fe 0%, #f1faff 100%);
-  /* FF3.6-15 */
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #dbf5fe), color-stop(100%, #f1faff));
+  /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(top, #dbf5fe 0%, #f1faff 100%);
-  /* Chrome10-25,Safari5.1-6 */
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #dbf5fe 0%, #f1faff 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #dbf5fe 0%, #f1faff 100%);
+  /* IE10+ */
   background: linear-gradient(to bottom, #dbf5fe 0%, #f1faff 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$bg-color1', endColorstr='$bg-color2',GradientType=0 );
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 );
   /* IE6-9 */ }
 
 .category1 {
@@ -116,6 +121,7 @@ h3 {
   flex-grow: 1;
   overflow: hidden;
   overflow-y: auto;
+  width: 100%;
   max-height: 90vh;
   margin: 0;
   padding-top: 10px;
@@ -144,7 +150,8 @@ h3 {
     flex-direction: row;
     overflow: hidden;
     flex-wrap: wrap;
-    max-width: 1062px; }
+    max-width: 1062px;
+    height: 100vh; }
     .grid-content .grid .flex {
       display: flex;
       max-height: 200px;

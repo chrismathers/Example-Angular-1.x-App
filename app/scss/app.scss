@@ -27,17 +27,24 @@ $color1: #16a765;
 $color2: #737373;
 $color3: #4986e7;
 $color4: #e9b330;
-$bg-color1: #dbf5fe;
-$bg-color2: #f1faff;
+$top: #dbf5fe;
+$bottom: #f1faff;
+$drop-shadow: #dbdbdb;
+
+@mixin linearGradient($top, $bottom){
+  background: $top; /* Old browsers */
+  background: -moz-linear-gradient(top,  $top 0%, $bottom 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  $top 0%,$bottom 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  $top 0%,$bottom 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  $top 0%,$bottom 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  $top 0%,$bottom 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
 
 body {
   overflow: hidden;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcf1fc+0,f1faff+100 */
-  background: $bg-color1; /* Old browsers */
-  background: -moz-linear-gradient(top, $bg-color1 0%, $bg-color2 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, $bg-color1 0%,$bg-color2 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, $bg-color1 0%,$bg-color2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$bg-color1', endColorstr='$bg-color2',GradientType=0 ); /* IE6-9 */
+  @include linearGradient($top, $bottom);
 }
 
 .category1 {
@@ -159,6 +166,7 @@ h3 {
   flex-grow: 1;
   overflow: hidden;
   overflow-y: auto;
+  width: 100%;
   max-height: 90vh;
   margin: 0;
   padding-top: 10px;
@@ -198,6 +206,7 @@ h3 {
     overflow: hidden;
     flex-wrap: wrap;
     max-width: 1062px;
+    height: 100vh;
 
     .flex {
       display: flex;
@@ -436,10 +445,9 @@ select {
       height: 9px;
       width: 100%;
       left: 0;
-      -webkit-box-shadow: 0 5px 9px 0 #dbdbdb;
-      -moz-box-shadow: 0 5px 9px 0 #dbdbdb;
-      box-shadow: 0 5px 9px 0 #dbdbdb;
-
+      -webkit-box-shadow: 0 5px 9px 0 $drop-shadow;
+      -moz-box-shadow: 0 5px 9px 0 $drop-shadow;
+      box-shadow: 0 5px 9px 0 $drop-shadow;
     }
 
     &.isShown {

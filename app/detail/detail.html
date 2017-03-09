@@ -2,7 +2,7 @@
     <h2 ng-class="'facetCategory' + article.category">{{getArticleCategory(article.category)}}</h2>
     <p>{{ article.timestamp | date:'longDate' }}</p>
     <h3 class="subs">{{article.title}}</h3>
-    <div ng-bind-html="$sce.trustAsHtml(article.html)"></div>
+    <div class="html" ng-bind-html="$sce.trustAsHtml(article.html)"></div>
 
     <p class="subs">Score: {{article.score}}</p>
 
