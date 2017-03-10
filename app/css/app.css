@@ -258,7 +258,7 @@ select {
   height: 100vh;
   background: white;
   padding: 10px; }
-  .full-article .fullArticle p:nth-child(1) {
+  .full-article p:nth-child(1) {
     font-weight: bold; }
   .full-article .subs {
     font-weight: bold;

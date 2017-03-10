@@ -20,8 +20,15 @@ angular.module('myApp.grid', ['ngRoute'])
         $scope.sort = 'timestamp';
         $scope.onactive = true;
         $scope.offactive = false;
+        $scope.narrowWidth = false;
+        /*
+        $(window).resize(function(){
+            $scope.$apply(function(){
+                $scope.narrowWidth = true;
+            });
+        });*/
 
-        if($routeParams.selectedTemplate) {
+        if(!$scope.narrowWidth && $routeParams.selectedTemplate) {
             $scope.selectedTemplate = 'content/' + $routeParams.selectedTemplate + '.html';
         }
         $scope.selectedTemplate = $scope.selectedTemplate || 'content/list.html';
