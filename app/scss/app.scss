@@ -66,7 +66,25 @@ ul {
 
 h3 {
   margin: 0;
+}
 
+button {
+  border: none;
+  text-indent: -6000px;
+  width: 24px;
+  outline: none;
+  cursor: pointer;
+  opacity: .5;
+  &.selected {
+    opacity: 1;
+    cursor: default;
+  }
+  &.grid {
+    background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/Grid.png) no-repeat 0 0;
+  }
+  &.list {
+    background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/ViewType_Details.png) no-repeat 0 0;
+  }
 }
 
 .header {
@@ -114,25 +132,6 @@ h3 {
     justify-content: space-between;
     align-items: flex-end;
     width: 148px;
-
-    button {
-      border: none;
-      text-indent: -6000px;
-      width: 24px;
-      outline: none;
-      cursor: pointer;
-      opacity: .5;
-      &.selected {
-        opacity: 1;
-        cursor: default;
-      }
-      &.grid {
-        background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/Grid.png) no-repeat 0 0;
-      }
-      &.list {
-        background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/ViewType_Details.png) no-repeat 0 0;
-      }
-    }
 
     > li {
       display: inline;
@@ -357,6 +356,14 @@ select {
     font-weight: bold;
     color: #999;
   }
+
+  button {
+    text-indent: 0;
+    opacity: 1;
+    width: auto;
+    padding-left: 38px;
+    line-height: 26px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -461,17 +468,11 @@ select {
       margin: 2px 0 0 0;
 
       .menu-left {
-        width: auto;
-        margin: 0 10px 0 0;
-        flex-grow: 1;
-        justify-content: flex-start;
-        align-items: center;
-        border-bottom: none;
+        display: none;
       }
 
       .menu-right {
-        margin-bottom: 0;
-        flex-grow: 1;
+        margin: 0 0 0 13px;
         text-align: right;
         padding-right: 20px;
       }

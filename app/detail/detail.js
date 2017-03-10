@@ -3,18 +3,17 @@
 angular.module('myApp.detail', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/detail/:articleId', {
+        $routeProvider.when('/detail/:articleId/:selectedTemplate', {
             controller: 'detailCtrl',
-            templateUrl: function(articleId){
-                return 'detail/detail.html'
-            }
+            templateUrl: 'detail/detail.html'
         });
     }])
 
-    .controller('detailCtrl', ['$route', '$http', '$scope', '$routeParams', '$sce', function($route, $http, $scope, $routeParams, $sce) {
+    .controller('detailCtrl', ['$route', '$http', '$scope', '$routeParams', '$sce', '$location', function($route, $http, $scope, $routeParams, $sce, $location) {
 
         $scope.$sce = $sce;
         $scope.articleId = $routeParams.articleId;
+        $scope.selectedTemplate = $routeParams.selectedTemplate;
 
         // get articles
         $http.get('/model/data.json').success(function(data) {
@@ -37,25 +36,23 @@ angular.module('myApp.detail', ['ngRoute'])
                 return $scope.categories[i].title;
             }
         }
+
+
+        //$scope.selectedTemplate = 'content/list.html';
+        $scope.changeView = function(template) {
+            template = '/content/' + $scope.selectedTemplate;
+            $location.path(template);
+        };
     }])
 
-    .directive('detailContent', function() {
+    .directive('linkBack', function() {
 
         return {
-            restrict: 'AEC',
+            restrict: 'E',
             link: function(scope, element,attrs) {
-                scope.getArticleCategory = function (catId) {
-                    var result = [];
-                    if($scope.categories != null) {
-                        for(var i = 0 ; i < $scope.categories.length ; i++){
-                            if(catId === $scope.categories[i].catId){
-                                result.push($scope.categories[i]);
-                            }
-                        }
-                        return result;
-                    }
-                }
-
+                scope.goTo = function ( path ) {
+                    $location.path(path);
+                };
             }
         };
     });

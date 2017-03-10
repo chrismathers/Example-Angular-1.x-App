@@ -47,6 +47,21 @@ ul {
 h3 {
   margin: 0; }
 
+button {
+  border: none;
+  text-indent: -6000px;
+  width: 24px;
+  outline: none;
+  cursor: pointer;
+  opacity: .5; }
+  button.selected {
+    opacity: 1;
+    cursor: default; }
+  button.grid {
+    background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/Grid.png) no-repeat 0 0; }
+  button.list {
+    background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/ViewType_Details.png) no-repeat 0 0; }
+
 .header {
   display: flex;
   flex-direction: row;
@@ -83,20 +98,6 @@ h3 {
   justify-content: space-between;
   align-items: flex-end;
   width: 148px; }
-  .header-content .menu-left button {
-    border: none;
-    text-indent: -6000px;
-    width: 24px;
-    outline: none;
-    cursor: pointer;
-    opacity: .5; }
-    .header-content .menu-left button.selected {
-      opacity: 1;
-      cursor: default; }
-    .header-content .menu-left button.grid {
-      background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/Grid.png) no-repeat 0 0; }
-    .header-content .menu-left button.list {
-      background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/ViewType_Details.png) no-repeat 0 0; }
   .header-content .menu-left > li {
     display: inline;
     margin: 10px 10px 20px 0; }
@@ -262,6 +263,12 @@ select {
   .full-article .subs {
     font-weight: bold;
     color: #999; }
+  .full-article button {
+    text-indent: 0;
+    opacity: 1;
+    width: auto;
+    padding-left: 38px;
+    line-height: 26px; }
 
 @media (max-width: 640px) {
   .logo {
@@ -342,15 +349,9 @@ select {
       flex-wrap: nowrap;
       margin: 2px 0 0 0; }
       .sidebar .header-content .menu-left {
-        width: auto;
-        margin: 0 10px 0 0;
-        flex-grow: 1;
-        justify-content: flex-start;
-        align-items: center;
-        border-bottom: none; }
+        display: none; }
       .sidebar .header-content .menu-right {
-        margin-bottom: 0;
-        flex-grow: 1;
+        margin: 0 0 0 13px;
         text-align: right;
         padding-right: 20px; }
     .sidebar button {

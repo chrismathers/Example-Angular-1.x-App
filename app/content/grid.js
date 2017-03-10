@@ -2,20 +2,29 @@
 
 angular.module('myApp.grid', ['ngRoute'])
     .config(['$routeProvider', function($routeProvider) {
+        $routeProvider.when('/content/:selectedTemplate', {
+            templateUrl: 'content/content.html',
+            controller: 'gridCtrl'
+        })
         $routeProvider.when('/grid', {
             templateUrl: 'content/content.html',
             controller: 'gridCtrl'
-        });
+        })
+
     }])
 
-    .controller('gridCtrl', ['$scope', '$http', '$sce', '$location', function($scope, $http, $sce, $location) {
+    .controller('gridCtrl', ['$scope', '$http', '$sce', '$location', '$routeParams', function($scope, $http, $sce, $location, $routeParams) {
 
         $scope.useCategory = {};
         $scope.$sce = $sce;
         $scope.sort = 'timestamp';
         $scope.onactive = true;
         $scope.offactive = false;
-        $scope.selectedTemplate = 'content/list.html';
+
+        if($routeParams.selectedTemplate) {
+            $scope.selectedTemplate = 'content/' + $routeParams.selectedTemplate + '.html';
+        }
+        $scope.selectedTemplate = $scope.selectedTemplate || 'content/list.html';
 
         // get articles
         $http.get('/model/data.json').success(function(data) {
