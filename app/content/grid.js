@@ -3,11 +3,11 @@
 angular.module('myApp.grid', ['ngRoute'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/content/:selectedTemplate', {
-            templateUrl: 'content/content.html',
+            templateUrl: 'app/content/content.html',
             controller: 'gridCtrl'
         })
         $routeProvider.when('/grid', {
-            templateUrl: 'content/content.html',
+            templateUrl: 'app/content/content.html',
             controller: 'gridCtrl'
         })
 
@@ -29,9 +29,9 @@ angular.module('myApp.grid', ['ngRoute'])
         });*/
 
         if(!$scope.narrowWidth && $routeParams.selectedTemplate) {
-            $scope.selectedTemplate = 'content/' + $routeParams.selectedTemplate + '.html';
+            $scope.selectedTemplate = 'app/content/' + $routeParams.selectedTemplate + '.html';
         }
-        $scope.selectedTemplate = $scope.selectedTemplate || 'content/list.html';
+        $scope.selectedTemplate = $scope.selectedTemplate || 'app/content/list.html';
 
         // get articles
         $http.get('/model/data.json').success(function(data) {
