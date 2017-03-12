@@ -34,12 +34,12 @@ angular.module('myApp.grid', ['ngRoute'])
         $scope.selectedTemplate = $scope.selectedTemplate || 'content/list.html';
 
         // get articles
-        $http.get('model/data.json').success(function(data) {
+        $http.get('https://chrismathers.github.io/voyanta/app/model/data.json').success(function(data) {
             $scope.articles = angular.fromJson(data.articles);
         });
 
         // get categories
-        $http.get('model/data.json').success(function(data) {
+        $http.get('https://chrismathers.github.io/voyanta/app/model/data.json').success(function(data) {
             $scope.categories = angular.fromJson(data.categories);
         });
 
