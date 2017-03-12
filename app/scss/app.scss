@@ -404,6 +404,7 @@ select {
     .grid {
       .flex {
         display: flex;
+        align-content: flex-start;
         overflow: hidden;
         margin-bottom: 15px;
         width: 100%;
