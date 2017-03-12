@@ -10,7 +10,11 @@
   display: flex;
   flex-direction: row; }
 
+html {
+  height: 100%; }
+
 body {
+  height: 100%;
   overflow: hidden;
   background: #dbf5fe;
   /* Old browsers */
