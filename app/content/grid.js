@@ -34,12 +34,12 @@ angular.module('myApp.grid', ['ngRoute'])
         $scope.selectedTemplate = $scope.selectedTemplate || 'content/list.html';
 
         // get articles
-        $http.get('app/model/data.json').success(function(data) {
+        $http.get('/model/data.json').success(function(data) {
             $scope.articles = angular.fromJson(data.articles);
         });
 
         // get categories
-        $http.get('app/model/data.json').success(function(data) {
+        $http.get('/model/data.json').success(function(data) {
             $scope.categories = angular.fromJson(data.categories);
         });
 
