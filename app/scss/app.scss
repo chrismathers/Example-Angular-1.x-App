@@ -42,7 +42,12 @@ $drop-shadow: #dbdbdb;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 }
 
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   overflow: hidden;
   @include linearGradient($top, $bottom);
 }
