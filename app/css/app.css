@@ -301,6 +301,7 @@ select {
     padding-top: 10px; }
     .grid-content .grid .flex {
       display: flex;
+      align-content: flex-start;
       overflow: hidden;
       margin-bottom: 15px;
       width: 100%;
