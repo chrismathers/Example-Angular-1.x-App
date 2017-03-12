@@ -152,7 +152,7 @@ button {
   .grid-content .grid {
     display: flex;
     flex-direction: row;
-    flex-direction: row;
+    align-content: flex-start;
     overflow: hidden;
     flex-wrap: wrap;
     max-width: 1062px;

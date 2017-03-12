@@ -206,7 +206,7 @@ button {
 
   .grid {
     @include flex-row;
-    flex-direction: row;
+    align-content: flex-start;
     overflow: hidden;
     flex-wrap: wrap;
     max-width: 1062px;
