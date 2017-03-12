@@ -16,7 +16,7 @@ angular.module('myApp.detail', ['ngRoute'])
         $scope.selectedTemplate = $routeParams.selectedTemplate;
 
         // get articles
-        $http.get('./model/data.json').success(function(data) {
+        $http.get('../model/data.json').success(function(data) {
             $scope.articles = angular.fromJson(data.articles);
         });
 
