@@ -62,13 +62,16 @@ button {
     opacity: 1;
     cursor: default; }
   button.grid {
-    background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/Grid.png) no-repeat 0 0; }
+    background: url(../assets/svg/grid.svg) no-repeat 0 0;
+    background-size: contain; }
   button.list {
-    background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/ViewType_Details.png) no-repeat 0 0; }
+    background: url(../assets/svg/list.svg) no-repeat 0 2px;
+    background-size: contain; }
 
 .header {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   background: black;
   padding: 4px 0 4px 10px;
   margin-bottom: -1px; }
@@ -82,8 +85,6 @@ button {
     height: 10px;
     width: 100%;
     left: 0; }
-  .header a {
-    flex-grow: 1; }
   .header p {
     color: white;
     margin-right: 20px; }

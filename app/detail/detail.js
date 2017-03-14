@@ -35,7 +35,7 @@ angular.module('myApp.detail', ['ngRoute'])
                 }
                 return $scope.categories[i].title;
             }
-        }
+        };
 
 
         //$scope.selectedTemplate = 'content/list.html';

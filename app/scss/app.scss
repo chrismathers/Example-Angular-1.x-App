@@ -85,15 +85,17 @@ button {
     cursor: default;
   }
   &.grid {
-    background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/Grid.png) no-repeat 0 0;
+    background: url(../assets/svg/grid.svg) no-repeat 0 0;
+    background-size: contain;
   }
   &.list {
-    background: url(https://cdn0.iconfinder.com/data/icons/elysium-icons/24/ViewType_Details.png) no-repeat 0 0;
+    background: url(../assets/svg/list.svg) no-repeat 0 2px;
+    background-size: contain;
   }
 }
-
 .header {
   @include flex-row;
+  justify-content: space-between;
   background: black;
   padding: 4px 0 4px 10px;
   margin-bottom: -1px; //drop shadow issue
@@ -110,9 +112,6 @@ button {
     left: 0;
   }
 
-  a {
-    flex-grow: 1;
-  }
   p {
     color: white;
     margin-right: 20px;

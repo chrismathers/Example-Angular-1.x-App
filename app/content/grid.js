@@ -5,7 +5,7 @@ angular.module('myApp.grid', ['ngRoute'])
         $routeProvider.when('/content/:selectedTemplate', {
             templateUrl: 'content/content.html',
             controller: 'gridCtrl'
-        })
+        });
         $routeProvider.when('/grid', {
             templateUrl: 'content/content.html',
             controller: 'gridCtrl'
@@ -34,12 +34,12 @@ angular.module('myApp.grid', ['ngRoute'])
         $scope.selectedTemplate = $scope.selectedTemplate || 'content/list.html';
 
         // get articles
-        $http.get('https://chrismathers.github.io/voyanta/app/model/data.json').success(function(data) {
+        $http.get('model/data.json').success(function(data) {
             $scope.articles = angular.fromJson(data.articles);
         });
 
         // get categories
-        $http.get('https://chrismathers.github.io/voyanta/app/model/data.json').success(function(data) {
+        $http.get('model/data.json').success(function(data) {
             $scope.categories = angular.fromJson(data.categories);
         });
 
