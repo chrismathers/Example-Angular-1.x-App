@@ -21,6 +21,12 @@ angular.module('myApp.grid', ['ngRoute'])
         $scope.onactive = true;
         $scope.offactive = false;
         $scope.narrowWidth = false;
+
+        $scope.item = {
+            list: true,
+            grid: false
+        };
+
         /*
         $(window).resize(function(){
             $scope.$apply(function(){
@@ -29,9 +35,11 @@ angular.module('myApp.grid', ['ngRoute'])
         });*/
 
         if(!$scope.narrowWidth && $routeParams.selectedTemplate) {
-            $scope.selectedTemplate = 'content/' + $routeParams.selectedTemplate + '.html';
+            $routeParams.selectedTemplate === 'list' ? $scope.item.list = true : $scope.item.list = false;
+            $routeParams.selectedTemplate === 'grid' ? $scope.item.grid = true : $scope.item.grid = false;
+            $scope.selectedTemplate = 'content/' + $routeParams.selectedTemplate;
         }
-        $scope.selectedTemplate = $scope.selectedTemplate || 'content/list.html';
+        $scope.selectedTemplate = $scope.selectedTemplate || 'content/list';
 
         // get articles
         $http.get('model/data.json').success(function(data) {
@@ -42,18 +50,6 @@ angular.module('myApp.grid', ['ngRoute'])
         $http.get('model/data.json').success(function(data) {
             $scope.categories = angular.fromJson(data.categories);
         });
-
-        $scope.changeView = function(button, template) {
-            if (button === 'on') {
-                $scope.onactive = true;
-                $scope.offactive = false;
-            } else if (button === 'off') {
-                $scope.onactive = false;
-                $scope.offactive = true;
-            }
-            $scope.selectedTemplate = template;
-        };
-
 
         var uniqueItems = function (data, key) {
             var result = [];
@@ -104,4 +100,37 @@ angular.module('myApp.grid', ['ngRoute'])
 
                 $scope.filteredArticles = filterAfterCategory;
             }, true);
-    }]);
+
+    }])
+
+    .directive('buttonGrid', function() {
+        return {
+            scope: true,
+            restrict: 'E',
+            template: '<button ng-class="{selected: item.list}" class="list"></button>',
+                link: function(scope, elem) {
+                elem.bind('click', function() {
+                    scope.$apply(function(){
+                        scope.item.list = !scope.item.list || scope.item.grid;
+                        scope.goTo('content/list');
+                    });
+                });
+            }
+        };
+    })
+
+    .directive('buttonList', function() {
+        return {
+            scope: true,
+            restrict: 'E',
+            template: '<button ng-class="{selected: item.grid}" class="grid"></button>',
+            link: function(scope, elem) {
+                elem.bind('click', function() {
+                    scope.$apply(function(){
+                        scope.item.grid = !scope.item.grid || scope.item.list;
+                        scope.goTo('content/grid');
+                    });
+                });
+            }
+        };
+    });

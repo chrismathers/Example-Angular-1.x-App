@@ -55,6 +55,7 @@ button {
   border: none;
   text-indent: -6000px;
   width: 24px;
+  height: 24px;
   outline: none;
   cursor: pointer;
   opacity: .5; }
@@ -102,7 +103,8 @@ button {
 .header-content h3 {
   font-size: 15px;
   display: inline-block;
-  white-space: nowrap; }
+  white-space: nowrap;
+  align-self: center; }
 .header-content .menu-left,
 .header-content .menu-right {
   margin-bottom: 14px; }

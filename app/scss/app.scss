@@ -77,6 +77,7 @@ button {
   border: none;
   text-indent: -6000px;
   width: 24px;
+  height: 24px;
   outline: none;
   cursor: pointer;
   opacity: .5;
@@ -135,6 +136,7 @@ button {
     font-size: 15px;
     display: inline-block;
     white-space: nowrap;
+    align-self: center;
   }
   .menu-left,
   .menu-right {
